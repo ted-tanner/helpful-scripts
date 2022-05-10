@@ -38,13 +38,13 @@ int main(int argc, char** argv)
         getc(stdin);
 
         Card card = choose_card(cards);
-        printf("------------------------------------------------------------\n");
+        printf("-----------------------------------------------------------------\n");
         printf("You will have %d seconds to complete the folling prompt prompt:\n\n", card.seconds);
 
         printf(ASCII_BOLD_ITALIC);
         printf("%s\n", cards.prompt_buf + card.prompt_offset);
         printf(ASCII_CLEAR_FORMATTING);
-        printf("------------------------------------------------------------\n\n\n");
+        printf("-----------------------------------------------------------------\n\n\n");
 
         printf("Get ready...\n");
 
