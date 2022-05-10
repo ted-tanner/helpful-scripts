@@ -5,8 +5,6 @@
 #include <string.h>
 #include <time.h>
 
-
-#include <ctype.h>
 typedef struct _line_grid {
     char* line_arr;
     int64_t line_count;
