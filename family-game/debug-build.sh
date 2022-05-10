@@ -1,0 +1,2 @@
+clang -g game.c
+
