@@ -131,8 +131,8 @@ int main(int argc, char** argv)
         uint64_t line1_num = rand() % lines.line_count;
         uint64_t line2_num = rand() % lines.line_count;
         
-        swap_lines(lines.line_arr + (line1_num * lines.line_buf_size + 1),
-                   lines.line_arr + (line2_num * lines.line_buf_size + 1),
+        swap_lines(lines.line_arr + (line1_num * lines.line_buf_size),
+                   lines.line_arr + (line2_num * lines.line_buf_size),
                    lines.line_buf_size);
     }
 
@@ -145,6 +145,7 @@ int main(int argc, char** argv)
 
     for (uint64_t i = 0; i < lines.line_count; ++i)
         fprintf(file, "%s\n", lines.line_arr + i * lines.line_buf_size);
+
     
     fclose(file);
     free(lines.line_arr);
