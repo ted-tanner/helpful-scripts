@@ -28,11 +28,9 @@ LineGrid break_into_lines(FILE* file)
 
             curr_line_length = -1;
         }
+        // Don't include carriage return in line length
         else if (curr == '\r')
-        {
-            // Don't include carriage return in line length
             --curr_line_length;
-        }
     }
     
     rewind(file);
@@ -144,12 +142,10 @@ int main(int argc, char** argv)
         printf("Failed to open output file '%s'\r\n", out_file);
         exit(1);
     }
+
+    for (uint64_t i = 0; i < lines.line_count; ++i)
+        fprintf(file, "%s\n", lines.line_arr + i * lines.line_buf_size);
     
-    char* curr = lines.line_arr;
-    for (int64_t i = 0; i < lines.line_count; ++i, curr += lines.line_buf_size)
-        fprintf(file, "%s\r\n", curr);
-
-
     fclose(file);
     free(lines.line_arr);
 
